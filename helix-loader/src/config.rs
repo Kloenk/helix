@@ -10,6 +10,7 @@ pub fn default_lang_config() -> toml::Value {
 /// User configured languages.toml file, merged with the default config.
 pub fn user_lang_config() -> Result<toml::Value, toml::de::Error> {
     let config = [
+        std::path::PathBuf::from("/etc/helix"),
         crate::config_dir(),
         crate::find_workspace().0.join(".helix"),
     ]
